@@ -1,0 +1,743 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import config
+@import 'blocks/**/*'
+
+
+
+$grey: #444240
+$dark: #1B1A17
+$accent: #8B8371
+
+/* Style reset */
+
+*, *:before, *:after
+    box-sizing: border-box
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video
+    margin: 0
+    padding: 0
+    border: 0
+
+footer, header, nav, section, main
+    display: block
+
+body
+    line-height: 1
+
+ol, ul
+    list-style: none
+
+blockquote, q
+    quotes: none
+
+blockquote:before, blockquote:after, q:before, q:after
+    content: ''
+    content: none
+
+table
+    border-collapse: collapse
+    border-spacing: 0
+
+input
+    -webkit-appearance: none
+    border-radius: 0
+    border: none
+
+a
+    text-decoration: none
+
+
+/* container */
+
+.app-container
+    max-width: 1200px
+    width: 100%
+    padding: 0 15px
+    margin: 0 auto
+    position: relative
+
+.app-row
+    margin: 0 -15px
+    display: flex
+
+.app-column
+    margin: 0 15px
+
+/* global components */
+
+.app-logo
+    display: flex
+    align-items: center
+
+/* header */
+
+#app-header
+
+    position: fixed
+    top: 0
+    width: 100%
+    background-color: #fff
+    z-index: 100
+
+    .app-header__logo
+        height: 85px
+    
+    .app-header__container
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    .header-nav__ul
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        justify-content: center
+        padding: 24.5px 0 
+
+    .header-nav__item
+        margin: 0 32.5px
+        padding: 10px 0 
+
+    .header-nav__link
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 16px
+        color: #555248
+
+    .app-header__aside
+        display: flex
+        align-items: center
+
+    .app-header__button
+        margin: 0 11.5px
+        position: relative
+
+    .app-header__indicator
+        position: absolute
+        top: -6px
+        right: -6px
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 8px
+        line-height: 9px
+        text-align: center
+        color: #1B1A17
+        background-color: #E6C8B4
+        width: 13px
+        height: 13px
+        border-radius: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .app-hamburger
+        display: none
+        align-items: center
+        height: 26px
+        position: relative
+
+    .app-hamburger__line
+        height: 2px
+        width: 50px
+        background: #E6C8B4
+
+    .app-hamburger__line:after
+        content: ''
+        display: block
+        position: absolute
+        height: 2px
+        width: 100%
+        background: #E6C8B4
+        top: 0
+
+    .app-hamburger__line:before
+        content: ''
+        display: block
+        position: absolute
+        height: 2px
+        width: 100%
+        background: #E6C8B4
+        bottom: 0
+
+    
+
+
+/* main components */
+
+#app-main
+    .app-main__button
+        padding: 23px 38px
+        color: #fff
+        display: inline-block
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 500
+        font-size: 12px
+        line-height: 14px
+        letter-spacing: 0.05em
+        text-transform: uppercase
+        color: #FFFFFF
+        transition: .3s
+
+/* first-screen section */
+
+.app-first-screen
+    min-height: 100vh
+    display: flex
+    align-items: center
+    padding-top: 85px
+
+    .app-first-screen__container
+        display: flex
+        align-items: center
+
+    .text-group
+        padding-left: 85px
+        position: relative
+        z-index: 50
+
+    .text-group__title:after
+        content: ''
+        display: block
+        position: absolute
+        width: 50px
+        height: 1px
+        background: #8B8371
+        top: 32px
+        left: 20px
+
+
+    .text-group__title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 45px
+        line-height: 60px
+        color: #1B1A17
+        margin-bottom: 16px
+
+    .text-group__sub-title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 30px
+        line-height: 40px
+        color: #1B1A17
+        margin-bottom: 39px
+
+    .text-group__text
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 300
+        font-size: 14px
+        line-height: 21px
+        color: rgba(27, 26, 23, 0.82)
+        margin-bottom: 64px
+        max-width: 258px
+
+
+    .text-group__button
+        background: #444240
+        border: 2px solid #444240
+
+    .text-group__button:hover
+        color: #444240 !important
+        background: #fff
+
+
+    .watch-group
+        position: absolute
+        display: flex
+        align-items: center
+        width: 100%
+
+    .watch-group__shape
+        position: absolute
+        right: -64px
+        top: -392px
+
+    .watch-group__watch
+        position: absolute
+        right: 128px
+        height: 804px
+
+    .watch-group__watch-img
+        height: 804px
+        width: auto
+
+    .watch-group__price
+        position: absolute
+        top: 159px
+        left: -80px
+        font-family: 'Prata'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 22px
+        color: #1B1A17
+
+    .watch-group__price:after
+        content: ''
+        display: block
+        width: 50px
+        height: 1px
+        position: absolute
+        right: -65px
+        top: 8px
+        background: #8B8371
+
+    .watch-group__size
+        position: absolute
+        bottom: 116px
+        right: -84px
+        font-family: 'Prata'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 22px
+        color: #1B1A17
+
+    .watch-group__size:after
+        content: ''
+        display: block
+        width: 50px
+        height: 1px
+        position: absolute
+        left: -65px
+        top: 8px
+        background: #8B8371
+
+/* products section */
+
+
+.app-products
+    margin-top: 75px
+
+    .app-products__title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 32px
+        line-height: 43px
+        color: #1B1A17
+        text-align: center
+
+    .app-products__row
+        padding-top: 52px
+        flex-wrap: wrap
+        justify-content: space-around
+
+    .product
+        width: calc(100%/3 - 30px)
+        padding: 28px
+        background: #FDFDFB
+        margin: 0
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .product__title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 700
+        font-size: 14px
+        line-height: 24px
+        letter-spacing: 0.03em
+        color: rgba(27, 26, 23, 0.82)
+        width: 100%
+        margin-bottom: 10px
+        padding: 0 12px
+        padding-top: 12px
+
+
+    .product__price
+        width: 100%
+        font-family: 'Prata'
+        font-style: normal
+        font-weight: 400
+        font-size: 12px
+        line-height: 16px
+        color: rgba(27, 26, 23, 0.82)
+        padding: 0 12px
+
+    .product__rub
+        height: 10px
+        width: auto
+        margin-bottom: 2px
+
+    .product__img-box
+        border-radius: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        background: linear-gradient(to right, #e2d0c400 0%,#E2D0C4 100%)
+
+    .product__img-box:after
+        content: ''
+        display: block
+        position: absolute
+        width: calc( 100% - 2px )
+        height: calc( 100% - 2px )
+        border-radius: 100%
+        background: #FDFDFB
+
+    .product__img
+        position: relative
+        z-index: 50
+        max-width: 313px
+        width: 100%
+        height: auto
+
+    .product__link-wrapper
+        width: 100%
+        margin-top: 19px
+        padding-left: 48px
+        position: relative
+        padding: 0  12px 12px 12px + 48px
+
+    .product__link
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 21px
+        color: #1B1A17
+
+    .product__link:after
+        content: ''
+        display: block
+        position: absolute
+        background: #8B8371
+        width: 30px
+        height: 1px
+        left: 12px
+        top: 10px
+
+
+/* promo section */
+
+.app-promo
+    margin-top: 86px
+    position: relative
+    overflow: hidden
+
+    .app-promo__left-bg
+        background-color: #F7F5EF
+        height: 100%
+        position: absolute
+        left: 0
+        top: 0
+        width: 34%
+
+    .app-promo__right-bg
+        background-image: url('../images/dist/lines_banner.png')
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: center
+        background-color: #FDFDFB
+        height: 100%
+        position: absolute
+        right: 0
+        top: 0
+        width: 66%
+
+    .galery-group
+        padding: 52px 0
+        position: relative
+        padding-left: 77px
+
+    .galery-group__slide-img
+        max-width: 521px
+        width: 100%
+        height: auto
+
+    .galery-group__controler
+        position: absolute
+        bottom: 19px
+        right: 53px
+
+    .galery-group__arrow-left
+        margin-right: 20px
+
+    .galery-group__arrow-right
+        margin-left: 20px
+
+
+    .promo-text-group__wrapper
+        max-width: 521px
+
+    .promo-text-group
+        display: flex
+        align-items: center
+        padding-left: 39px
+
+    .promo-text-group__title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 32px
+        line-height: 43px
+        color: #1B1A17
+        margin-bottom: 38px
+
+
+    .promo-text-group__text
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 150%
+        color: #444240
+        margin-bottom: 45px
+        max-width: 376px
+
+    .promo-text-group__button
+        background: #D4B098
+        border: 2px solid #D4B098
+
+    .promo-text-group__button:hover
+        color: #D4B098 !important
+        background: #fff
+
+
+
+
+/* promo-news section */
+
+.app-promo-news
+
+    padding-top: 81px
+    padding-bottom: 90px
+
+    .news-text-group
+        display: flex
+        align-items: center
+
+    
+    .news-text-group__wrapper
+        max-width: 639px
+
+    .news-text-group__title
+        font-family: 'Playfair Display'
+        font-style: normal
+        font-weight: 400
+        font-size: 32px
+        line-height: 43px
+        color: #1B1A17
+        margin-bottom: 40px
+
+    .news-text-group__text
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 27px
+        color: #444240
+        max-width: 376px
+        margin-bottom: 118px
+
+    .news-text-group__link
+        color: #262421
+        font-weight: 700
+
+    .socials-group
+        display: flex
+
+    .socials-group__item
+        padding: 0 8px
+        display: flex
+        align-items: center
+
+
+    .img-group
+        display: flex
+
+    .img-group__aside
+        display: flex
+        flex-direction: column
+
+    .img-group__img:first-child
+        padding-bottom: 10px
+
+    .img-group__main-img
+        padding-left: 10px
+        max-width: 387px
+        width: 100%
+        height: 100%
+
+    .img-group__img
+        max-width: 242px
+        width: 100%
+
+/* footer */
+
+#app-footer
+    padding: 67px 0
+    background: #444240
+
+    .app-footer__row
+        justify-content: space-around
+        flex-wrap: wrap
+
+    .app-footer__column
+        display: flex
+        flex-direction: column
+        width: calc( 25% - 30px )
+        margin: 0
+
+    .app-footer__logo
+        margin-bottom: 23px
+
+    .app-footer__contact
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 12px
+        line-height: 14px
+        color: rgba(255, 255, 255, 0.75)
+        margin-bottom: 15px
+
+    .app-footer__contact:last-child
+        margin-bottom: 0
+
+    .app-footer__title
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 700
+        font-size: 14px
+        line-height: 16px
+        letter-spacing: 0.07em
+        text-transform: uppercase
+        color: #FFFFFF
+        margin-bottom: 33px
+
+    .app-footer__link
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 400
+        font-size: 12px
+        line-height: 14px
+        color: rgba(255, 255, 255, 0.75)
+        margin-bottom: 15px
+
+    .app-footer__link:last-child
+        margin-bottom: 0
+
+
+// media
+
+@media (max-width: 1200px)
+    .app-first-screen .watch-group
+        left: 165px
+    .app-first-screen .watch-group__size
+        left: -75px
+        top: 103px
+        right: auto
+        bottom: auto
+
+    .app-first-screen .watch-group__size:after
+        right: -65px
+        left: auto
+
+    .app-promo .galery-group
+        padding-left: 0
+
+    .app-promo .promo-text-group
+        padding-left: 0
+
+    .app-products__row
+        flex-direction: column
+        align-items: center
+
+    .app-products .product
+        width: 50%
+        margin-bottom: 30px
+
+    .app-products .product:last-child
+        margin-bottom: 0
+
+
+@media (max-width: 998px)
+    
+    .app-promo__row
+        flex-direction: column
+
+    .app-promo .galery-group
+        display: flex
+        justify-content: center
+
+    .app-promo .promo-text-group
+        justify-content: center
+        padding-bottom: 50px
+
+    .app-promo-news__row
+        flex-direction: column-reverse
+
+    .app-promo-news .img-group
+        justify-content: center
+        padding-bottom: 50px
+
+    .app-promo-news .news-text-group
+        justify-content: center
+
+
+    .app-first-screen .watch-group
+        left: 268px
+
+    #app-footer .app-footer__column
+        width: calc(50% - 30px)
+        align-items: center
+        margin-bottom: 50px
+
+    #app-footer .app-footer__column:nth-child(3),
+    #app-footer .app-footer__column:nth-child(4)
+        margin-bottom: 0
+
+
+@media (max-width: 768px)
+
+    .app-first-screen .watch-group
+        left: 348px
+
+
+    .app-products .product
+        width: calc( 100% - 30px )
+
+    .app-first-screen .watch-group__watch-img,
+    .app-first-screen .watch-group__price,
+    .app-first-screen .watch-group__size
+        display: none
+
+    #app-header .header-nav__ul
+        display: none
+
+    #app-header .app-header__aside
+        display: none
+
+    #app-header .app-hamburger
+        display: flex
+
+
+@media (max-width: 576px)
+
+    #app-footer .app-footer__column,
+    #app-footer .app-footer__column:nth-child(3)
+        width: calc( 100% - 30px )
+        margin-bottom: 50px
+    
+    #app-header
+        position: relative
+        margin-bottom: -85px
+
+    .app-first-screen .text-group
+        padding-left: 0
+
+    .app-first-screen .text-group__title:after
+        display: none
+    
